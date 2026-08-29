@@ -9,15 +9,25 @@ const listaPalavras = [ "Amor", "Fé", "Graça", "Paz", "Esperança", "Salvaçã
   "Provérbio", "Anjo", "Querubim", "Serafim", "Éden", "Jerusalém", "Templo", "Fidelidade"];
 
 let palavraEscolhida;
+let palavraNormalizada;
 let exibicaoPalavra;
 let letrasChutadas;
 let tentativasRestantes;
 let numeroErros;
 
+function normalizarTexto(texto) {
+    return texto
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
+}
+
 //==== Função Para Iniciar o Jogo===
 function iniciarJogo(){
     //===ESCOLHER UMA PALAVRA ALEATORIA DA LISTA===
-    palavraEscolhida = listaPalavras[Math.floor(Math.random()*listaPalavras.length)].toLowerCase();
+    palavraEscolhida = listaPalavras[Math.floor(Math.random()*listaPalavras.length)];
+    palavraNormalizada = normalizarTexto(palavraEscolhida);
 
     //==INICIALIZAR A EXIBIÇÃO COM UNDERSCORES "_" ===
     exibicaoPalavra = Array(palavraEscolhida.length).fill("_");
@@ -61,9 +71,10 @@ function iniciarJogo(){
     function chutarLetra(){
 
         const entradaLetra = document.getElementById('entrada-letra');
-        const letra = entradaLetra.value.trim().toLowerCase();
+        const letraDigitada = entradaLetra.value.trim();
+        const letra = normalizarTexto(letraDigitada);
 
-        if(!/^[a-zà-úãõâêôáéíóúüç]+$/i.test(letra)){
+        if(!letra || !/^[a-z]$/.test(letra)){
             alert('Por Favor, insira uma letra válida.');
             return;
         }
@@ -75,9 +86,9 @@ function iniciarJogo(){
 
         letrasChutadas.push(letra);
 
-        if(palavraEscolhida.includes(letra)){
-           for(let i=0; i< palavraEscolhida.length; i++){
-               if(palavraEscolhida[i] === letra){
+        if(palavraNormalizada.includes(letra)){
+           for(let i=0; i< palavraNormalizada.length; i++){
+               if(palavraNormalizada[i] === letra){
                    exibicaoPalavra[i] = palavraEscolhida[i];
                }
            }
