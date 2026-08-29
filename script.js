@@ -49,7 +49,7 @@ console.log(palavraEscolhida)
         document.getElementById("exibicao-palavra").innerText = exibicaoPalavra.join(' ');
         document.getElementById("letras-chutadas").innerText = `${letrasChutadas.join(', ')}`;
 
-        document.getElementById("imagem").src = `assets/forca${numeroErros}.png`;
+        document.getElementById("imagem").src = `./assets/forca${numeroErros}.png`;
         
         //VERIFICAR SE O JOGO TERMINOU==
         if(tentativasRestantes ===0){

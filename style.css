@@ -212,10 +212,12 @@ body {
 
     .container {
         padding: 12px;
+        border-radius: 15px;
     }
 
     .titulo {
         margin-bottom: 15px;
+        font-size: 28px;
     }
 
     .conteudo-principal {
@@ -224,15 +226,26 @@ body {
 
     .imagem-forca {
         max-height: 180px;
+        width: auto;
+    }
+
+    .area-palavra {
+        padding: 15px;
+    }
+
+    #exibicao-palavra {
+        font-size: 24px;
+        letter-spacing: 6px;
     }
 
     .area-entrada {
         gap: 8px;
+        width: 100%;
     }
 
     #entrada-letra {
-        min-width: 80px;
-        max-width: 120px;
+        flex: 1;
+        min-width: 70px;
         padding: 10px 12px;
         font-size: 14px;
     }
@@ -240,14 +253,31 @@ body {
     .btn-chutar {
         padding: 10px 20px;
         font-size: 14px;
+        flex-shrink: 0;
     }
 
     .area-letras {
         margin-bottom: 15px;
     }
 
+    .area-letras h2 {
+        font-size: 16px;
+    }
+
     .letras-chutadas {
         min-height: 35px;
         padding: 10px;
+        font-size: 14px;
+    }
+
+    #mensagem {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .botao-reiniciar {
+        padding: 12px 20px;
+        font-size: 16px;
+        margin-top: 10px;
     }
 }
