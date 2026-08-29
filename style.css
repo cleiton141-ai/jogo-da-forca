@@ -1,0 +1,36 @@
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+}
+
+#exibicao-palavra{
+
+    font-size: 3em;
+    margin-bottom: 30px;
+}
+
+#letras-chutadas{
+    font-size: 2em;
+    color: darkblue;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#mensagem{
+    display: none;
+}
+
+#botao-reiniciar{
+    background-color: blue;
+    border:none;
+    color: khaki;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#botao-reiniciar:hover{
+    background-color: rgba(6, 6, 145, 0.842);
+}
