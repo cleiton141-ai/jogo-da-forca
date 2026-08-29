@@ -10,21 +10,33 @@
 </head>
 
 <body>
-    <!-- Topo--->
-    <h1>Jogo da Forca</h1>
+    <div class="container">
+        <!-- Topo--->
+        <h1 class="titulo">Jogo da Forca</h1>
 
-    <img id="imagem" src="/assets/forca0.png">
-    <div id="exibicao-palavra"></div>
-    <input type="text" id="entrada-letra" placeholder="Chute una Letra" maxlength="1">
-    <button id="btn-chutar" onclick="chutarLetra()">Chutar</button>
+        <div class="conteudo-principal">
+            <img id="imagem" src="/assets/forca0.png" alt="Jogo da forca" class="imagem-forca">
+            
+            <div class="area-palavra">
+                <div id="exibicao-palavra" class="palavra-exibida"></div>
+            </div>
 
-    <!-- Baixo--->
-    <h2> Letras chutadas</h2>
-    <div id="letras-chutadas">
+            <div class="area-entrada">
+                <input type="text" id="entrada-letra" placeholder="Chute uma Letra" maxlength="1">
+                <button id="btn-chutar" onclick="chutarLetra()" class="btn-chutar">Chutar</button>
+            </div>
+        </div>
 
+        <!-- Seção de letras chutadas--->
+        <div class="area-letras">
+            <h2>Letras chutadas</h2>
+            <div id="letras-chutadas" class="letras-chutadas"></div>
+        </div>
+
+        <!-- Mensagem de fim de jogo e botão reiniciar --->
+        <div id="mensagem" class="mensagem"></div>
+        <button id="botao-reiniciar" class="botao-reiniciar" onclick="iniciarJogo()">Recomeçar</button>
     </div>
-    <div id="Mensagem">Você Ganhou</div><br>
-    <button id="botao-reiniciar">Recomeçar</button>
 
 </body>
 

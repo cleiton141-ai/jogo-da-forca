@@ -32,6 +32,14 @@ console.log(palavraEscolhida)
     //INICIALIZA O NUMERO DE ERROS==
     numeroErros = 0;
 
+    //HABILITAR O CAMPO DE ENTRADA==
+    document.getElementById('entrada-letra').disabled = false;
+    document.getElementById('entrada-letra').value = '';
+
+    //LIMPAR MENSAGEM E BOTÃO==
+    document.getElementById('mensagem').classList.remove('mostrar');
+    document.getElementById('botao-reiniciar').classList.remove('mostrar');
+
     atualizarExibicao();
 
     }
@@ -91,10 +99,12 @@ console.log(palavraEscolhida)
         document.getElementById('entrada-letra').disabled = true;
 
         //EXIBIR A MENSAGEM==
-        document.getElementById('mensagem').innerText = mensagem;
+        const msgElement = document.getElementById('mensagem');
+        msgElement.innerText = mensagem;
+        msgElement.classList.add('mostrar');
 
         //EXIBIR O BOTÃO REINICIAR==
-        document.getElementById('botao-reiniciar').style.display = 'block';
+        document.getElementById('botao-reiniciar').classList.add('mostrar');
     }
 
     window.onload = iniciarJogo;
