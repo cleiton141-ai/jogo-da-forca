@@ -17,11 +17,10 @@ let numeroErros;
 //==== Função Para Iniciar o Jogo===
 function iniciarJogo(){
     //===ESCOLHER UMA PALAVRA ALEATORIA DA LISTA===
-    palavraEscolhida = listaPalavras[Math.floor(Math.random()*listaPalavras.length)];
-console.log(palavraEscolhida)
+    palavraEscolhida = listaPalavras[Math.floor(Math.random()*listaPalavras.length)].toLowerCase();
+
     //==INICIALIZAR A EXIBIÇÃO COM UNDERSCORES "_" ===
     exibicaoPalavra = Array(palavraEscolhida.length).fill("_");
-    console.log(exibicaoPalavra);
 
     //INICIALIZAR A LISTA DE PALAVRAS CHUTADAS==
     letrasChutadas = [];
@@ -62,15 +61,15 @@ console.log(palavraEscolhida)
     function chutarLetra(){
 
         const entradaLetra = document.getElementById('entrada-letra');
-        const letra = entradaLetra.value.toLowerCase();
+        const letra = entradaLetra.value.trim().toLowerCase();
 
-        if(!letra.match(/[a-zà-ùç]/i)){
-            alert('Por Favor,insira uma letra Válida.');
+        if(!/^[a-zà-úãõâêôáéíóúüç]+$/i.test(letra)){
+            alert('Por Favor, insira uma letra válida.');
             return;
         }
 
         if(letrasChutadas.includes(letra)){
-            alert('Voçê Já tentou está letra. Tente outra.');
+            alert('Você já tentou esta letra. Tente outra.');
             return;
         }
 
@@ -79,7 +78,7 @@ console.log(palavraEscolhida)
         if(palavraEscolhida.includes(letra)){
            for(let i=0; i< palavraEscolhida.length; i++){
                if(palavraEscolhida[i] === letra){
-                   exibicaoPalavra[i] = letra;
+                   exibicaoPalavra[i] = palavraEscolhida[i];
                }
            }
 
